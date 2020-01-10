@@ -70,11 +70,10 @@ class MyCaptcha
     private static function createFolder()
     {
         $dir = $_SERVER['DOCUMENT_ROOT'] . '/var';
-        echo $dir;
         if (!is_dir($dir)) {
             mkdir($dir,0777,true);
         }
-        $dir .= '/capture';
+        $dir .= '/capture/';
         if (!is_dir($dir)) {
             mkdir($dir,0777,true);
         }
