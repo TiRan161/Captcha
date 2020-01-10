@@ -1,9 +1,6 @@
 <?php
 
-namespace App\src;
-
-require_once "../vendor/autoload.php";
-
+namespace App;
 
 class MyCaptcha
 {
@@ -57,7 +54,7 @@ class MyCaptcha
         for ($i = 0; $i < strlen($str); $i++) {
             $x += rand(30, 40);
             $color = $white = imagecolorallocate($src, rand(0, 254), rand(0, 254), rand(0, 254));
-            imagettftext($src, rand(25, 35), rand(-25, 25), $x, 40, $color,  "arial.ttf", $str[$i]);
+            imagettftext($src, rand(25, 35), rand(-25, 25), $x, 40, $color,  "../fonts/arial.ttf", $str[$i]);
 
         }
         for ($i = 0; $i < 4; $i++) {
