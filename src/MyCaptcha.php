@@ -44,17 +44,15 @@ class MyCaptcha
     {
         $width = 200;
         $height = 60;
-        //$dir = $_SERVER['DOCUMENT_ROOT'] . '/Captcha/fonts/';
         $src = imagecreatetruecolor($width, $height);
         $white = imagecolorallocate($src, 255, 255, 255);
         imagefilledrectangle($src, 0, 0, 200, 100, ($white));
         $x = rand(0, 10);
         $pixels = rand(2000, 4000);
-
         for ($i = 0; $i < strlen($str); $i++) {
             $x += rand(30, 40);
             $color = $white = imagecolorallocate($src, rand(0, 254), rand(0, 254), rand(0, 254));
-            imagettftext($src, rand(25, 35), rand(-25, 25), $x, 40, $color,  "../fonts/arial.ttf", $str[$i]);
+            imagettftext($src, rand(25, 35), rand(-25, 25), $x, 40, $color, __DIR__.'/../fonts/arial.ttf', $str[$i]);
 
         }
         for ($i = 0; $i < 4; $i++) {
@@ -72,6 +70,7 @@ class MyCaptcha
     private static function createFolder()
     {
         $dir = $_SERVER['DOCUMENT_ROOT'] . '/var';
+        echo $dir;
         if (!is_dir($dir)) {
             mkdir($dir,0777,true);
         }
